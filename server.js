@@ -11,15 +11,18 @@ const opts = {
     ajv: {
         plugins: [ [ addFormats ], [ ajvErrors ] ],
         customOptions: {
-            jsonPointers: true, // Fastify использует библиотеку fast-json-stringify для ускоренной сериализации JSON.
-            strict: false, // Отключаем строгий режим
-            allErrors: true, // Показывать все ошибки, а не только первую
-            coerceTypes: true, // Автоматическое преобразование типов
-            useDefaults: true, // Использование значений по умолчанию
-            removeAdditional: false, // Удалять дополнительные поля
-            messages: true // Включить сообщения об ошибках
+            allErrors: true,            // Показывать все ошибки, а не только первую
+            // jsonPointers: true,         // Fastify использует библиотеку fast-json-stringify для ускоренной сериализации JSON.
+            strict: false,              // Отключаем строгий режим
+            coerceTypes: true,          // Автоматическое преобразование типов
+            useDefaults: true,          // Использование значений по умолчанию
+            removeAdditional: false,    // Удалять дополнительные поля
+            messages: true,             // Включить сообщения об ошибках
+            verbose: true               // Для подробных ошибок
         }
-    }
+    },
+
+    dotenv: true
 }
 
 const app = await build(opts)

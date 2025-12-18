@@ -1,7 +1,7 @@
 import { build } from './app.js'
 import addFormats from 'ajv-formats'
 import ajvErrors from 'ajv-errors'
-import 'dotenv/config'
+// import 'dotenv/config'
 
 const opts = {
     logger: {
@@ -26,6 +26,9 @@ const opts = {
 }
 
 const app = await build(opts)
+
+console.log( 'app-printRoutes', app.printRoutes() )
+console.log( 'app-getSchemas', app.getSchemas() )
 
 await app.listen({ 
     port: process.env.PORT,

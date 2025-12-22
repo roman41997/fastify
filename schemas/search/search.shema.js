@@ -1,6 +1,7 @@
 export const getSchemaValidationSearch = {
     querystring: {
         type: 'object',
+        required: ['query'],
         properties: {
             query: {
                 type: 'string',
@@ -14,7 +15,6 @@ export const getSchemaValidationSearch = {
             }
         },
 
-        required: ['query'],
         additionalProperties: false
     }
 }

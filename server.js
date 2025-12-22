@@ -1,7 +1,7 @@
 import { build } from './app.js'
 import addFormats from 'ajv-formats'
 import ajvErrors from 'ajv-errors'
-// import 'dotenv/config'
+import 'dotenv/config'
 
 const opts = {
     logger: {
@@ -18,7 +18,7 @@ const opts = {
             useDefaults: true,          // Использование значений по умолчанию
             removeAdditional: false,    // Удалять дополнительные поля
             messages: true,             // Включить сообщения об ошибках
-            verbose: true               // Для подробных ошибок
+            verbose: false              // Для подробных ошибок
         }
     },
 

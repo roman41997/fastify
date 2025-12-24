@@ -1,8 +1,9 @@
 import fastify from 'fastify'
-import manticorePlugin from './plugins/manticore.js'
-// import routesSearch from './routes/search.routes.js'
+import envPlugin from './plugins/env.js'
+// import manticorePlugin from './plugins/manticore.js'
+import routesSearch from './routes/search.routes.js'
 import { allRoutes } from './routes/index.routes.js'
-import createError from '@fastify/error' // Delete KaboomErr 
+import createError from '@fastify/error' // Delete KaboomErr
 
 const KaboomErr = createError('KaboomErr', 'Description Err the test', 501) // Delete
 
@@ -19,7 +20,9 @@ export async function build(opts = {}) {
     })
 
     // Регистрируем плагин
-    app.register( allRoutes, { prefix: '/api/f' } )
+    // await app.register(envPlugin)
+    await app.register(allRoutes, { prefix: '/api/f' }) // routesSearch | allRoutes
+    console.log( 'envPlugin:' )
 
     // app.register( manticorePlugin, manticoreConfig )
     // app.register( routesSearch, { prefix: '/api/f' } )

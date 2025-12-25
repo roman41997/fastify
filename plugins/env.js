@@ -1,20 +1,10 @@
+import fp from 'fastify-plugin'
 import fastifyEnv from '@fastify/env'
-import { schemaEnv } from '../schemas/schema.env.js'
+import { plaginOptionsEnv } from '../config/plagins-options/options.env.js'
+import { allDecorators } from '../decorators/decorators.env.js'
 
-export default async function envPlugin(app) {
-    await app.register(fastifyEnv, {
-        confKey: 'config',
-        data: process.env,
-        schema: schemaEnv,
-        dotenv: true
-    })
-/*
-    app.decorate('getConfig', function() {
-        return app.config
-    })
+export const configPluginEnv = fp(async (app, options) => {
+    await app.register(fastifyEnv, plaginOptionsEnv)
 
-    app.decorate('isProduction', function() {
-        return app.config.NODE_ENV === 'production'
-    })
-*/
-}
+    allDecorators(app)
+})

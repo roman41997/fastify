@@ -1,5 +1,5 @@
 import fastify from 'fastify'
-import envPlugin from './plugins/env.js'
+import { configPluginEnv } from './plugins/env.js'
 // import manticorePlugin from './plugins/manticore.js'
 import routesSearch from './routes/search.routes.js'
 import { allRoutes } from './routes/index.routes.js'
@@ -20,9 +20,13 @@ export async function build(opts = {}) {
     })
 
     // Регистрируем плагин
-    // await app.register(envPlugin)
+    await app.register(configPluginEnv)
     await app.register(allRoutes, { prefix: '/api/f' }) // routesSearch | allRoutes
-    console.log( 'envPlugin:' )
+
+    console.log( 'envPlugin:', app.getConfig() )
+    console.log( 'envPORT:', app.PORT() )
+    console.log( 'envHOST:', app.HOST() )
+
 
     // app.register( manticorePlugin, manticoreConfig )
     // app.register( routesSearch, { prefix: '/api/f' } )

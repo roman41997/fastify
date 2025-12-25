@@ -1,9 +1,18 @@
 export const schemaEnv = {
     type: 'object',
-    required: ['PORT', 'DATABASE_URL'],
+    required: ['PORT', 'HOST', 'NODE_ENV'],
     properties: {
-        PORT: { type: 'integer', default: 7000 },
-        DATABASE_URL: { type: 'string' },
-        JWT_SECRET: { type: 'string' }
+        PORT: {
+            type: 'integer',
+            default: 9000
+        },
+        HOST: {
+            type: 'string',
+            default: '127.0.0.1'
+        },
+        NODE_ENV: {
+            type: 'string',
+            default: 'development'
+        }
     }
 }

@@ -31,5 +31,6 @@ console.log( 'app-printRoutes', app.printRoutes() )
 console.log( 'app-getSchemas', app.getSchemas() )
 
 await app.listen({ 
-    port: process.env.PORT,
-    host: process.env.HOST})
+    port: app.PORT(),
+    host: app.HOST()
+})

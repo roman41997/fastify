@@ -5,6 +5,5 @@ import { allDecorators } from '../decorators/decorators.env.js'
 
 export const configPluginEnv = fp(async (app, options) => {
     await app.register(fastifyEnv, plaginOptionsEnv)
-
-    allDecorators(app)
+    await allDecorators(app)
 })

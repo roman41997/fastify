@@ -1,5 +1,5 @@
 import searchControllers from '../controllers/search.controllers.js'
-import { getSchemaValidationSearch } from '../schemas/search/shema.search.js'
+import { getSchemaValidationSearch } from '../schemas/searchController/shema.search.js'
 
 export default async function routesSearch(app, opt) {
     // Проверка ошибок в контроллере: { schema: getSchemaValidationSearch, attachValidation: true }
